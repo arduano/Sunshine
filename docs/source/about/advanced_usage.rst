@@ -152,6 +152,23 @@ gamepad
    .. code-block:: text
 
       gamepad = auto
+      
+ds4_back_as_touchpad_click
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+**Description**
+   .. Hint:: Only applies when gamepad is set to ds4 manually. Unused in other gamepad modes. 
+
+   Allow Select/Back inputs to also trigger DS4 touchpad click. Useful for clients looking to emulate touchpad click
+   on Xinput devices.
+
+**Default**
+   ``enabled``
+
+**Example**
+   .. code-block:: text
+
+      ds4_back_as_touchpad_click = enabled
 
 back_button_timeout
 ^^^^^^^^^^^^^^^^^^^
@@ -588,7 +605,9 @@ pkey
 ^^^^
 
 **Description**
-   The private key. This must be 2048 bits.
+   The private key used for the web UI and Moonlight client pairing. For best compatibility, this should be an RSA-2048 private key.
+
+   .. Warning:: Not all Moonlight clients support ECDSA keys or RSA key lengths other than 2048 bits.
 
 **Default**
    ``credentials/cakey.pem``
@@ -602,7 +621,9 @@ cert
 ^^^^
 
 **Description**
-   The certificate. Must be signed with a 2048 bit key.
+   The certificate used for the web UI and Moonlight client pairing. For best compatibility, this should have an RSA-2048 public key.
+
+   .. Warning:: Not all Moonlight clients support ECDSA keys or RSA key lengths other than 2048 bits.
 
 **Default**
    ``credentials/cacert.pem``
